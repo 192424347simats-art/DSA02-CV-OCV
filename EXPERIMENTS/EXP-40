@@ -1,0 +1,15 @@
+import cv2
+
+img = cv2.imread("image.jpg")
+
+x, y, w, h = 50, 50, 200, 200
+
+cv2.rectangle(img, (x,y), (x+w,y+h), (0,255,0), 2)
+
+object = img[y:y+h, x:x+w]
+
+cv2.imshow("Rectangle", img)
+cv2.imshow("Extracted Object", object)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
