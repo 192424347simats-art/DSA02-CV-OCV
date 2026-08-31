@@ -1,0 +1,15 @@
+import cv2
+
+img = cv2.imread("image.jpg", 0)
+
+gx = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3)
+gy = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3)
+
+gradient = cv2.magnitude(gx, gy)
+gradient = cv2.convertScaleAbs(gradient)
+
+result = cv2.add(img, gradient)
+
+cv2.imshow("Gradient Masking", result)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
